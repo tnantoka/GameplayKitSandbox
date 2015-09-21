@@ -42,15 +42,8 @@ class RandomizationScene: ExampleScene {
 
             draw(distribution(source), color: color, radius: radius)
 
-            let label = SKLabelNode(text: example[2] as? String)
-            label.fontSize = 16.0
-            label.fontName = UIFont.boldSystemFontOfSize(UIFont.systemFontSize()).fontName
-            let padding: CGFloat = 10.0
-            label.position = CGPointMake(padding, CGRectGetMaxY(frame) - CGFloat(i) * label.fontSize - padding)
-            label.fontColor = color
-            label.horizontalAlignmentMode = .Left
-            label.verticalAlignmentMode = .Top
-            addChild(label)
+            let text = "● \(example[2] as! String)"
+            createLabel(text, color: color, order: i)
         }
     }
 
@@ -59,7 +52,9 @@ class RandomizationScene: ExampleScene {
     }
 
     func draw(distribution: GKRandomDistribution, color: SKColor, radius: CGFloat) {
-        let center = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame))
+        let circle = SKShapeNode(circleOfRadius: radius)
+        circle.position = center
+        addChild(circle)
 
         for _ in 0..<degrees.count {
             let degree = Float(degrees[distribution.nextInt()])

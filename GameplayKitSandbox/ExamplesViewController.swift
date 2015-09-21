@@ -11,8 +11,23 @@ import UIKit
 class ExamplesViewController: UITableViewController {
 
     let cellReuseIdentifier = "cellReuseIdentifier"
-    let examples: [String: UIViewController] = [
-        "Randomization": RandomizationViewController(),
+    let titles = [
+        "Randomization",
+        "Entities and Components",
+        "State Machines",
+        "The Minmax Strategist",
+        "Pathfinding",
+        "Agents, Goals, and Behaviors",
+        "Rule Systems",
+    ]
+    let controllers: [UIViewController] = [
+        RandomizationViewController(),
+        EntitiesViewController(),
+        StateViewController(),
+        MinmaxViewController(),
+        PathfindingViewController(),
+        AgentsViewController(),
+        RuleViewController(),
     ]
 
     override func viewDidLoad() {
@@ -42,14 +57,14 @@ class ExamplesViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return examples.count
+        return titles.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
 
         // Configure the cell...
-        let title = [String](examples.keys)[indexPath.row]
+        let title = titles[indexPath.row]
         cell.textLabel?.text = title
 
         return cell
@@ -101,8 +116,8 @@ class ExamplesViewController: UITableViewController {
     */
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let title = [String](examples.keys)[indexPath.row]
-        let controller = [UIViewController](examples.values)[indexPath.row]
+        let title = titles[indexPath.row]
+        let controller = controllers[indexPath.row]
         controller.title = title
         self.navigationController?.pushViewController(controller, animated: true)
     }

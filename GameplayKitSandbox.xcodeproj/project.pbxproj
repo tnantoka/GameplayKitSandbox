@@ -17,6 +17,17 @@
 		9B76DD321BAE8DD300298642 /* RandomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B76DD311BAE8DD300298642 /* RandomizationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9B76DD341BAE8F6400298642 /* RandomizationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B76DD331BAE8F6400298642 /* RandomizationScene.swift */; settings = {ASSET_TAGS = (); }; };
 		9B76DD371BAE903F00298642 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B76DD361BAE903F00298642 /* ExampleScene.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52221BAEC8D000D2D85B /* EntitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52211BAEC8D000D2D85B /* EntitiesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52291BAEC9E000D2D85B /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52281BAEC9E000D2D85B /* StateViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE522B1BAEC9E900D2D85B /* MinmaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE522A1BAEC9E900D2D85B /* MinmaxViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE522D1BAEC9F100D2D85B /* PathfindingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE522C1BAEC9F100D2D85B /* PathfindingViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE522F1BAEC9F900D2D85B /* AgentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE522E1BAEC9F900D2D85B /* AgentsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52321BAECA0700D2D85B /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52311BAECA0700D2D85B /* RuleViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52341BAEFF5700D2D85B /* EntitiesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52331BAEFF5700D2D85B /* EntitiesScene.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52361BAF720500D2D85B /* VisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52351BAF720500D2D85B /* VisualComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52381BAF829800D2D85B /* AttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52371BAF829800D2D85B /* AttackComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE523A1BAF8D5400D2D85B /* IntelligenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52391BAF8D5400D2D85B /* IntelligenceComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE523C1BB0A71700D2D85B /* ControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE523B1BB0A71700D2D85B /* ControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +64,17 @@
 		9B76DD311BAE8DD300298642 /* RandomizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizationViewController.swift; sourceTree = "<group>"; };
 		9B76DD331BAE8F6400298642 /* RandomizationScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizationScene.swift; sourceTree = "<group>"; };
 		9B76DD361BAE903F00298642 /* ExampleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleScene.swift; sourceTree = "<group>"; };
+		9BAE52211BAEC8D000D2D85B /* EntitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesViewController.swift; sourceTree = "<group>"; };
+		9BAE52281BAEC9E000D2D85B /* StateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateViewController.swift; sourceTree = "<group>"; };
+		9BAE522A1BAEC9E900D2D85B /* MinmaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinmaxViewController.swift; sourceTree = "<group>"; };
+		9BAE522C1BAEC9F100D2D85B /* PathfindingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathfindingViewController.swift; sourceTree = "<group>"; };
+		9BAE522E1BAEC9F900D2D85B /* AgentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentsViewController.swift; sourceTree = "<group>"; };
+		9BAE52311BAECA0700D2D85B /* RuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
+		9BAE52331BAEFF5700D2D85B /* EntitiesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesScene.swift; sourceTree = "<group>"; };
+		9BAE52351BAF720500D2D85B /* VisualComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualComponent.swift; sourceTree = "<group>"; };
+		9BAE52371BAF829800D2D85B /* AttackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackComponent.swift; sourceTree = "<group>"; };
+		9BAE52391BAF8D5400D2D85B /* IntelligenceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntelligenceComponent.swift; sourceTree = "<group>"; };
+		9BAE523B1BB0A71700D2D85B /* ControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +133,12 @@
 				9B76DD2F1BAE879400298642 /* ExampleViewController.swift */,
 				9B76DD361BAE903F00298642 /* ExampleScene.swift */,
 				9B76DD351BAE8F6D00298642 /* Randomization */,
+				9BAE52201BAEC8B600D2D85B /* Entities */,
+				9BAE52231BAEC99C00D2D85B /* State */,
+				9BAE52241BAEC9A100D2D85B /* Minmax */,
+				9BAE52251BAEC9B100D2D85B /* Pathfinding */,
+				9BAE52261BAEC9BF00D2D85B /* Agents */,
+				9BAE52271BAEC9CB00D2D85B /* Rule */,
 			);
 			path = GameplayKitSandbox;
 			sourceTree = "<group>";
@@ -140,6 +168,59 @@
 				9B76DD331BAE8F6400298642 /* RandomizationScene.swift */,
 			);
 			name = Randomization;
+			sourceTree = "<group>";
+		};
+		9BAE52201BAEC8B600D2D85B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9BAE52211BAEC8D000D2D85B /* EntitiesViewController.swift */,
+				9BAE52331BAEFF5700D2D85B /* EntitiesScene.swift */,
+				9BAE52351BAF720500D2D85B /* VisualComponent.swift */,
+				9BAE52371BAF829800D2D85B /* AttackComponent.swift */,
+				9BAE52391BAF8D5400D2D85B /* IntelligenceComponent.swift */,
+				9BAE523B1BB0A71700D2D85B /* ControlComponent.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		9BAE52231BAEC99C00D2D85B /* State */ = {
+			isa = PBXGroup;
+			children = (
+				9BAE52281BAEC9E000D2D85B /* StateViewController.swift */,
+			);
+			name = State;
+			sourceTree = "<group>";
+		};
+		9BAE52241BAEC9A100D2D85B /* Minmax */ = {
+			isa = PBXGroup;
+			children = (
+				9BAE522A1BAEC9E900D2D85B /* MinmaxViewController.swift */,
+			);
+			name = Minmax;
+			sourceTree = "<group>";
+		};
+		9BAE52251BAEC9B100D2D85B /* Pathfinding */ = {
+			isa = PBXGroup;
+			children = (
+				9BAE522C1BAEC9F100D2D85B /* PathfindingViewController.swift */,
+			);
+			name = Pathfinding;
+			sourceTree = "<group>";
+		};
+		9BAE52261BAEC9BF00D2D85B /* Agents */ = {
+			isa = PBXGroup;
+			children = (
+				9BAE522E1BAEC9F900D2D85B /* AgentsViewController.swift */,
+			);
+			name = Agents;
+			sourceTree = "<group>";
+		};
+		9BAE52271BAEC9CB00D2D85B /* Rule */ = {
+			isa = PBXGroup;
+			children = (
+				9BAE52311BAECA0700D2D85B /* RuleViewController.swift */,
+			);
+			name = Rule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,12 +352,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BAE522B1BAEC9E900D2D85B /* MinmaxViewController.swift in Sources */,
+				9BAE522D1BAEC9F100D2D85B /* PathfindingViewController.swift in Sources */,
+				9BAE52321BAECA0700D2D85B /* RuleViewController.swift in Sources */,
+				9BAE52341BAEFF5700D2D85B /* EntitiesScene.swift in Sources */,
 				9B76DD341BAE8F6400298642 /* RandomizationScene.swift in Sources */,
 				9B76DD2E1BAE83BD00298642 /* ExamplesViewController.swift in Sources */,
+				9BAE52381BAF829800D2D85B /* AttackComponent.swift in Sources */,
 				9B76DD001BAE839E00298642 /* AppDelegate.swift in Sources */,
 				9B76DD321BAE8DD300298642 /* RandomizationViewController.swift in Sources */,
+				9BAE52291BAEC9E000D2D85B /* StateViewController.swift in Sources */,
+				9BAE52221BAEC8D000D2D85B /* EntitiesViewController.swift in Sources */,
+				9BAE522F1BAEC9F900D2D85B /* AgentsViewController.swift in Sources */,
+				9BAE523A1BAF8D5400D2D85B /* IntelligenceComponent.swift in Sources */,
+				9BAE52361BAF720500D2D85B /* VisualComponent.swift in Sources */,
 				9B76DD301BAE879400298642 /* ExampleViewController.swift in Sources */,
 				9B76DD371BAE903F00298642 /* ExampleScene.swift in Sources */,
+				9BAE523C1BB0A71700D2D85B /* ControlComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +586,7 @@
 				9B76DD261BAE839E00298642 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B76DD271BAE839E00298642 /* Build configuration list for PBXNativeTarget "GameplayKitSandboxTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +595,7 @@
 				9B76DD291BAE839E00298642 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B76DD2A1BAE839E00298642 /* Build configuration list for PBXNativeTarget "GameplayKitSandboxUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +604,7 @@
 				9B76DD2C1BAE839E00298642 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
