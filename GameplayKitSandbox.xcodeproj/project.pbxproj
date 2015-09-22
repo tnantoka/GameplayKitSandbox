@@ -28,6 +28,16 @@
 		9BAE52381BAF829800D2D85B /* AttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52371BAF829800D2D85B /* AttackComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		9BAE523A1BAF8D5400D2D85B /* IntelligenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52391BAF8D5400D2D85B /* IntelligenceComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		9BAE523C1BB0A71700D2D85B /* ControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE523B1BB0A71700D2D85B /* ControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE523E1BB113C700D2D85B /* StateScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE523D1BB113C700D2D85B /* StateScene.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52411BB119CF00D2D85B /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9BAE523F1BB119CF00D2D85B /* fire.sks */; settings = {ASSET_TAGS = (); }; };
+		9BAE52421BB119CF00D2D85B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAE52401BB119CF00D2D85B /* spark.png */; settings = {ASSET_TAGS = (); }; };
+		9BAE52441BB119E800D2D85B /* rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9BAE52431BB119E800D2D85B /* rain.sks */; settings = {ASSET_TAGS = (); }; };
+		9BAE52461BB11BCB00D2D85B /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9BAE52451BB11BCB00D2D85B /* spark.sks */; settings = {ASSET_TAGS = (); }; };
+		9BAE52481BB11F4200D2D85B /* HouseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52471BB11F4200D2D85B /* HouseState.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE524A1BB1204300D2D85B /* BurnableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52491BB1204300D2D85B /* BurnableComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE524C1BB120B500D2D85B /* HouseBurningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE524B1BB120B500D2D85B /* HouseBurningState.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE524E1BB120DD00D2D85B /* HouseWetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE524D1BB120DD00D2D85B /* HouseWetState.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52501BB120F700D2D85B /* HouseDryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE524F1BB120F700D2D85B /* HouseDryState.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +85,16 @@
 		9BAE52371BAF829800D2D85B /* AttackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackComponent.swift; sourceTree = "<group>"; };
 		9BAE52391BAF8D5400D2D85B /* IntelligenceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntelligenceComponent.swift; sourceTree = "<group>"; };
 		9BAE523B1BB0A71700D2D85B /* ControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlComponent.swift; sourceTree = "<group>"; };
+		9BAE523D1BB113C700D2D85B /* StateScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateScene.swift; sourceTree = "<group>"; };
+		9BAE523F1BB119CF00D2D85B /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
+		9BAE52401BB119CF00D2D85B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		9BAE52431BB119E800D2D85B /* rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = rain.sks; sourceTree = "<group>"; };
+		9BAE52451BB11BCB00D2D85B /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
+		9BAE52471BB11F4200D2D85B /* HouseState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseState.swift; sourceTree = "<group>"; };
+		9BAE52491BB1204300D2D85B /* BurnableComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurnableComponent.swift; sourceTree = "<group>"; };
+		9BAE524B1BB120B500D2D85B /* HouseBurningState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseBurningState.swift; sourceTree = "<group>"; };
+		9BAE524D1BB120DD00D2D85B /* HouseWetState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseWetState.swift; sourceTree = "<group>"; };
+		9BAE524F1BB120F700D2D85B /* HouseDryState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseDryState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +207,16 @@
 			isa = PBXGroup;
 			children = (
 				9BAE52281BAEC9E000D2D85B /* StateViewController.swift */,
+				9BAE523D1BB113C700D2D85B /* StateScene.swift */,
+				9BAE523F1BB119CF00D2D85B /* fire.sks */,
+				9BAE52401BB119CF00D2D85B /* spark.png */,
+				9BAE52431BB119E800D2D85B /* rain.sks */,
+				9BAE52451BB11BCB00D2D85B /* spark.sks */,
+				9BAE52471BB11F4200D2D85B /* HouseState.swift */,
+				9BAE52491BB1204300D2D85B /* BurnableComponent.swift */,
+				9BAE524B1BB120B500D2D85B /* HouseBurningState.swift */,
+				9BAE524D1BB120DD00D2D85B /* HouseWetState.swift */,
+				9BAE524F1BB120F700D2D85B /* HouseDryState.swift */,
 			);
 			name = State;
 			sourceTree = "<group>";
@@ -327,7 +357,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B76DD0A1BAE839E00298642 /* LaunchScreen.storyboard in Resources */,
+				9BAE52461BB11BCB00D2D85B /* spark.sks in Resources */,
+				9BAE52421BB119CF00D2D85B /* spark.png in Resources */,
+				9BAE52441BB119E800D2D85B /* rain.sks in Resources */,
 				9B76DD071BAE839E00298642 /* Assets.xcassets in Resources */,
+				9BAE52411BB119CF00D2D85B /* fire.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,19 +390,25 @@
 				9BAE522D1BAEC9F100D2D85B /* PathfindingViewController.swift in Sources */,
 				9BAE52321BAECA0700D2D85B /* RuleViewController.swift in Sources */,
 				9BAE52341BAEFF5700D2D85B /* EntitiesScene.swift in Sources */,
+				9BAE523E1BB113C700D2D85B /* StateScene.swift in Sources */,
 				9B76DD341BAE8F6400298642 /* RandomizationScene.swift in Sources */,
 				9B76DD2E1BAE83BD00298642 /* ExamplesViewController.swift in Sources */,
 				9BAE52381BAF829800D2D85B /* AttackComponent.swift in Sources */,
 				9B76DD001BAE839E00298642 /* AppDelegate.swift in Sources */,
 				9B76DD321BAE8DD300298642 /* RandomizationViewController.swift in Sources */,
+				9BAE52481BB11F4200D2D85B /* HouseState.swift in Sources */,
 				9BAE52291BAEC9E000D2D85B /* StateViewController.swift in Sources */,
+				9BAE524A1BB1204300D2D85B /* BurnableComponent.swift in Sources */,
 				9BAE52221BAEC8D000D2D85B /* EntitiesViewController.swift in Sources */,
+				9BAE524C1BB120B500D2D85B /* HouseBurningState.swift in Sources */,
 				9BAE522F1BAEC9F900D2D85B /* AgentsViewController.swift in Sources */,
 				9BAE523A1BAF8D5400D2D85B /* IntelligenceComponent.swift in Sources */,
 				9BAE52361BAF720500D2D85B /* VisualComponent.swift in Sources */,
 				9B76DD301BAE879400298642 /* ExampleViewController.swift in Sources */,
 				9B76DD371BAE903F00298642 /* ExampleScene.swift in Sources */,
+				9BAE52501BB120F700D2D85B /* HouseDryState.swift in Sources */,
 				9BAE523C1BB0A71700D2D85B /* ControlComponent.swift in Sources */,
+				9BAE524E1BB120DD00D2D85B /* HouseWetState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
