@@ -19,15 +19,6 @@ class EntitiesScene: ExampleScene {
 
     let intelligenceSystem = GKComponentSystem(componentClass: IntelligenceComponent.self)
 
-    override init(size: CGSize) {
-        super.init(size: size)
-        userInteractionEnabled = true
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func createSceneContents() {
         createLabel("■ Player: Visual, Attack, Control", color: SKColor.cyanColor(), order: 0)
         createLabel("■ Boss: Visual, Attack, Intelligence", color: SKColor.magentaColor(), order: 2)

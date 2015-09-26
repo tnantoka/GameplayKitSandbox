@@ -10,10 +10,22 @@ import UIKit
 
 class MinmaxViewController: ExampleViewController {
 
+    var scene: MinmaxScene!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        scene = MinmaxScene(size: skView.frame.size)
+        scene.didGameOver = { scene, message in
+            let alertController = UIAlertController(title: "Game Over", message: message, preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default) { action in
+                scene.reset()
+            }
+            alertController.addAction(action)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        skView.presentScene(scene)
     }
 
     override func didReceiveMemoryWarning() {

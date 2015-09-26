@@ -38,6 +38,11 @@
 		9BAE524C1BB120B500D2D85B /* HouseBurningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE524B1BB120B500D2D85B /* HouseBurningState.swift */; settings = {ASSET_TAGS = (); }; };
 		9BAE524E1BB120DD00D2D85B /* HouseWetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE524D1BB120DD00D2D85B /* HouseWetState.swift */; settings = {ASSET_TAGS = (); }; };
 		9BAE52501BB120F700D2D85B /* HouseDryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE524F1BB120F700D2D85B /* HouseDryState.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52521BB19BD800D2D85B /* MinmaxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52511BB19BD800D2D85B /* MinmaxScene.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52541BB26D5900D2D85B /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52531BB26D5900D2D85B /* Board.swift */; settings = {ASSET_TAGS = (); }; };
+		9BAE52561BB26E0A00D2D85B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE52551BB26E0A00D2D85B /* Player.swift */; settings = {ASSET_TAGS = (); }; };
+		9BDA16D41BB3AB6700192000 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDA16D31BB3AB6700192000 /* Mark.swift */; settings = {ASSET_TAGS = (); }; };
+		9BDA16D81BB4493200192000 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDA16D71BB4493200192000 /* Move.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +100,11 @@
 		9BAE524B1BB120B500D2D85B /* HouseBurningState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseBurningState.swift; sourceTree = "<group>"; };
 		9BAE524D1BB120DD00D2D85B /* HouseWetState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseWetState.swift; sourceTree = "<group>"; };
 		9BAE524F1BB120F700D2D85B /* HouseDryState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseDryState.swift; sourceTree = "<group>"; };
+		9BAE52511BB19BD800D2D85B /* MinmaxScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinmaxScene.swift; sourceTree = "<group>"; };
+		9BAE52531BB26D5900D2D85B /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		9BAE52551BB26E0A00D2D85B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9BDA16D31BB3AB6700192000 /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
+		9BDA16D71BB4493200192000 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +235,11 @@
 			isa = PBXGroup;
 			children = (
 				9BAE522A1BAEC9E900D2D85B /* MinmaxViewController.swift */,
+				9BAE52511BB19BD800D2D85B /* MinmaxScene.swift */,
+				9BAE52531BB26D5900D2D85B /* Board.swift */,
+				9BAE52551BB26E0A00D2D85B /* Player.swift */,
+				9BDA16D31BB3AB6700192000 /* Mark.swift */,
+				9BDA16D71BB4493200192000 /* Move.swift */,
 			);
 			name = Minmax;
 			sourceTree = "<group>";
@@ -386,22 +401,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BDA16D81BB4493200192000 /* Move.swift in Sources */,
 				9BAE522B1BAEC9E900D2D85B /* MinmaxViewController.swift in Sources */,
 				9BAE522D1BAEC9F100D2D85B /* PathfindingViewController.swift in Sources */,
 				9BAE52321BAECA0700D2D85B /* RuleViewController.swift in Sources */,
 				9BAE52341BAEFF5700D2D85B /* EntitiesScene.swift in Sources */,
+				9BAE52521BB19BD800D2D85B /* MinmaxScene.swift in Sources */,
 				9BAE523E1BB113C700D2D85B /* StateScene.swift in Sources */,
 				9B76DD341BAE8F6400298642 /* RandomizationScene.swift in Sources */,
 				9B76DD2E1BAE83BD00298642 /* ExamplesViewController.swift in Sources */,
 				9BAE52381BAF829800D2D85B /* AttackComponent.swift in Sources */,
 				9B76DD001BAE839E00298642 /* AppDelegate.swift in Sources */,
 				9B76DD321BAE8DD300298642 /* RandomizationViewController.swift in Sources */,
+				9BDA16D41BB3AB6700192000 /* Mark.swift in Sources */,
 				9BAE52481BB11F4200D2D85B /* HouseState.swift in Sources */,
 				9BAE52291BAEC9E000D2D85B /* StateViewController.swift in Sources */,
 				9BAE524A1BB1204300D2D85B /* BurnableComponent.swift in Sources */,
 				9BAE52221BAEC8D000D2D85B /* EntitiesViewController.swift in Sources */,
 				9BAE524C1BB120B500D2D85B /* HouseBurningState.swift in Sources */,
 				9BAE522F1BAEC9F900D2D85B /* AgentsViewController.swift in Sources */,
+				9BAE52541BB26D5900D2D85B /* Board.swift in Sources */,
+				9BAE52561BB26E0A00D2D85B /* Player.swift in Sources */,
 				9BAE523A1BAF8D5400D2D85B /* IntelligenceComponent.swift in Sources */,
 				9BAE52361BAF720500D2D85B /* VisualComponent.swift in Sources */,
 				9B76DD301BAE879400298642 /* ExampleViewController.swift in Sources */,
