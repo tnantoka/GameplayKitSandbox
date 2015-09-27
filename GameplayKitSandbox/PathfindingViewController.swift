@@ -10,10 +10,14 @@ import UIKit
 
 class PathfindingViewController: ExampleViewController {
 
+    var scene: PathfindingScene!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        scene = PathfindingScene(size: skView.frame.size)
+        skView.presentScene(scene)
     }
 
     override func didReceiveMemoryWarning() {

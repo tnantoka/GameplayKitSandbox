@@ -20,7 +20,9 @@ class ExampleViewController: UIViewController {
         // Do any additional setup after loading the view.
         edgesForExtendedLayout = .None
 
-        let skView = SKView(frame: view.bounds)
+        var frame = view.bounds
+        frame.size.height -= CGRectGetHeight(navigationController!.navigationBar.frame) + CGRectGetHeight(UIApplication.sharedApplication().statusBarFrame)
+        let skView = SKView(frame: frame)
         view.addSubview(skView)
         self.skView = skView
 

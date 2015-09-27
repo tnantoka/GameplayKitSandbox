@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B544D6F1BB80A8C00CE30AC /* PathfindingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B544D6E1BB80A8C00CE30AC /* PathfindingScene.swift */; settings = {ASSET_TAGS = (); }; };
 		9B76DD001BAE839E00298642 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B76DCFF1BAE839E00298642 /* AppDelegate.swift */; };
 		9B76DD071BAE839E00298642 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B76DD061BAE839E00298642 /* Assets.xcassets */; };
 		9B76DD0A1BAE839E00298642 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B76DD081BAE839E00298642 /* LaunchScreen.storyboard */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B544D6E1BB80A8C00CE30AC /* PathfindingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathfindingScene.swift; sourceTree = "<group>"; };
 		9B76DCFC1BAE839E00298642 /* GameplayKitSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameplayKitSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B76DCFF1BAE839E00298642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B76DD061BAE839E00298642 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				9BAE522C1BAEC9F100D2D85B /* PathfindingViewController.swift */,
+				9B544D6E1BB80A8C00CE30AC /* PathfindingScene.swift */,
 			);
 			name = Pathfinding;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				9B76DD371BAE903F00298642 /* ExampleScene.swift in Sources */,
 				9BAE52501BB120F700D2D85B /* HouseDryState.swift in Sources */,
 				9BAE523C1BB0A71700D2D85B /* ControlComponent.swift in Sources */,
+				9B544D6F1BB80A8C00CE30AC /* PathfindingScene.swift in Sources */,
 				9BAE524E1BB120DD00D2D85B /* HouseWetState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
