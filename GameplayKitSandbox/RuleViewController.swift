@@ -10,10 +10,14 @@ import UIKit
 
 class RuleViewController: ExampleViewController {
 
+    var scene: RuleScene!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        scene = RuleScene(size: skView.frame.size)
+        skView.presentScene(scene)
     }
 
     override func didReceiveMemoryWarning() {

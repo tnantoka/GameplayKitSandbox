@@ -10,6 +10,7 @@
 		9B544D6F1BB80A8C00CE30AC /* PathfindingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B544D6E1BB80A8C00CE30AC /* PathfindingScene.swift */; settings = {ASSET_TAGS = (); }; };
 		9B544D711BB9967000CE30AC /* AgentsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B544D701BB9967000CE30AC /* AgentsScene.swift */; settings = {ASSET_TAGS = (); }; };
 		9B544D731BB99C0200CE30AC /* AgentNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B544D721BB99C0200CE30AC /* AgentNode.swift */; settings = {ASSET_TAGS = (); }; };
+		9B638A4C1BBC1D840043FFEC /* RuleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B638A4B1BBC1D830043FFEC /* RuleScene.swift */; settings = {ASSET_TAGS = (); }; };
 		9B76DD001BAE839E00298642 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B76DCFF1BAE839E00298642 /* AppDelegate.swift */; };
 		9B76DD071BAE839E00298642 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B76DD061BAE839E00298642 /* Assets.xcassets */; };
 		9B76DD0A1BAE839E00298642 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B76DD081BAE839E00298642 /* LaunchScreen.storyboard */; };
@@ -69,6 +70,7 @@
 		9B544D6E1BB80A8C00CE30AC /* PathfindingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathfindingScene.swift; sourceTree = "<group>"; };
 		9B544D701BB9967000CE30AC /* AgentsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentsScene.swift; sourceTree = "<group>"; };
 		9B544D721BB99C0200CE30AC /* AgentNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentNode.swift; sourceTree = "<group>"; };
+		9B638A4B1BBC1D830043FFEC /* RuleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleScene.swift; sourceTree = "<group>"; };
 		9B76DCFC1BAE839E00298642 /* GameplayKitSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameplayKitSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B76DCFF1BAE839E00298642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B76DD061BAE839E00298642 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				9BAE52311BAECA0700D2D85B /* RuleViewController.swift */,
+				9B638A4B1BBC1D830043FFEC /* RuleScene.swift */,
 			);
 			name = Rule;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				9BDA16D41BB3AB6700192000 /* Mark.swift in Sources */,
 				9BAE52481BB11F4200D2D85B /* HouseState.swift in Sources */,
 				9BAE52291BAEC9E000D2D85B /* StateViewController.swift in Sources */,
+				9B638A4C1BBC1D840043FFEC /* RuleScene.swift in Sources */,
 				9BAE524A1BB1204300D2D85B /* BurnableComponent.swift in Sources */,
 				9BAE52221BAEC8D000D2D85B /* EntitiesViewController.swift in Sources */,
 				9BAE524C1BB120B500D2D85B /* HouseBurningState.swift in Sources */,
