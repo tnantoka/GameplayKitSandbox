@@ -10,10 +10,14 @@ import UIKit
 
 class AgentsViewController: ExampleViewController {
 
+    var scene: AgentsScene!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        scene = AgentsScene(size: skView.frame.size)
+        skView.presentScene(scene)
     }
 
     override func didReceiveMemoryWarning() {
