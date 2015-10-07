@@ -111,7 +111,7 @@ class PathfindingScene: ExampleScene, SKPhysicsContactDelegate {
         createBall()
     }
 
-    // MARK: SKPhysicsContactDelegate
+    // MARK: - SKPhysicsContactDelegate
 
     func didBeginContact(contact: SKPhysicsContact) {
         let firstBody: SKPhysicsBody

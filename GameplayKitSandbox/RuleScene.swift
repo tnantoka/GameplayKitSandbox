@@ -114,7 +114,7 @@ class RuleScene: ExampleScene, SKPhysicsContactDelegate {
         powerNode.size.width = CGFloat(power / 2)
     }
 
-    // MARK: SKPhysicsContactDelegate
+    // MARK: - SKPhysicsContactDelegate
 
     func didBeginContact(contact: SKPhysicsContact) {
         let firstBody: SKPhysicsBody

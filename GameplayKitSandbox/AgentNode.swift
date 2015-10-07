@@ -54,7 +54,7 @@ class AgentNode: SKNode, GKAgentDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: GKAgentDelegate
+    // MARK: - GKAgentDelegate
 
     func agentWillUpdate(agent: GKAgent) {
     }

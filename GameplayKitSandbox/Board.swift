@@ -100,7 +100,7 @@ class Board: NSObject, GKGameModel {
         return count
     }
 
-    // MARK: GKGameModel
+    // MARK: - GKGameModel
 
     var players: [GKGameModelPlayer]? {
         return Player.all()
