@@ -33,7 +33,7 @@ class MinmaxScene: ExampleScene {
         let step = cellSize + margin
 
         let backgroundSize = step * CGFloat(board.level) - margin
-        let background = SKSpriteNode(color: SKColor.whiteColor(), size: CGSizeMake(backgroundSize, backgroundSize))
+        let background = SKSpriteNode(color: SKColor.white, size: CGSize(width: backgroundSize, height: backgroundSize))
         background.position = center
         addChild(background)
 
@@ -42,10 +42,10 @@ class MinmaxScene: ExampleScene {
         let baseX = center.x - step * base
         let baseY = center.y - step * base
         for i in 0..<board.cells.count {
-            let cell = SKSpriteNode(color: backgroundColor, size: CGSizeMake(cellSize, cellSize))
+            let cell = SKSpriteNode(color: backgroundColor, size: CGSize(width: cellSize, height: cellSize))
             let x = baseX + floor(CGFloat(i) / CGFloat(board.level)) * step
             let y = baseY + CGFloat(i % board.level) * step
-            cell.position = CGPointMake(x, y)
+            cell.position = CGPoint(x: x, y: y)
             addChild(cell)
             cells.append(cell)
         }
@@ -63,21 +63,21 @@ class MinmaxScene: ExampleScene {
     }
 
     func updateBoard() {
-        for (i, cell) in board.cells.enumerate() {
+        for (i, cell) in board.cells.enumerated() {
             cells[i].removeAllChildren()
             let label = SKLabelNode(text: cell.text())
             label.fontName = "Chalkduster"
             label.fontSize = 70.0
-            label.fontColor = SKColor.whiteColor()
-            label.verticalAlignmentMode = .Center
+            label.fontColor = SKColor.white
+            label.verticalAlignmentMode = .center
             cells[i].addChild(label)
         }
 
         if board.isGameOver() {
             let message: String
-            if board.isWinForPlayer(Player.oPlayer()) {
+            if board.isWin(for: Player.oPlayer()) {
                 message = "Won"
-            } else if board.isWinForPlayer(Player.xPlayer()) {
+            } else if board.isWin(for: Player.xPlayer()) {
                 message = "Lost"
             } else {
                 message = "Draw"
@@ -93,15 +93,15 @@ class MinmaxScene: ExampleScene {
         createSceneContents()
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        let location = touch.locationInNode(self)
-        if let node = nodeAtPoint(location) as? SKSpriteNode {
-            if let index = cells.indexOf(node) {
+        let location = touch.location(in: self)
+        if let node = atPoint(location) as? SKSpriteNode {
+            if let index = cells.index(of: node) {
                 board.updateCell(index)
                 updateBoard()
-                if let move = strategist.bestMoveForPlayer(board.currentPlayer) as? Move {
-                    board.applyGameModelUpdate(move)
+                if let move = strategist.bestMove(for: board.currentPlayer) as? Move {
+                    board.apply(move)
                     updateBoard()
                 }
             }

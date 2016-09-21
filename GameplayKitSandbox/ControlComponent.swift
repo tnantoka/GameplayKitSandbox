@@ -12,11 +12,11 @@ import SpriteKit
 import GameplayKit
 
 class ControlComponent: GKComponent {
-    func touch(node: SKNode, location: CGPoint) {
+    func touch(_ node: SKNode, location: CGPoint) {
         if let entity = entity {
-            if let visualComponent = entity.componentForClass(VisualComponent.self) {
+            if let visualComponent = entity.component(ofType: VisualComponent.self) {
                 if node == visualComponent.sprite {
-                    if let attackComponent = entity.componentForClass(AttackComponent.self) {
+                    if let attackComponent = entity.component(ofType: AttackComponent.self) {
                         attackComponent.attack()
                     }
                 } else {

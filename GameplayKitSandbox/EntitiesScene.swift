@@ -20,9 +20,9 @@ class EntitiesScene: ExampleScene {
     let intelligenceSystem = GKComponentSystem(componentClass: IntelligenceComponent.self)
 
     override func createSceneContents() {
-        createLabel("■ Player: Visual, Attack, Control", color: SKColor.cyanColor(), order: 0)
-        createLabel("■ Boss: Visual, Attack, Intelligence", color: SKColor.magentaColor(), order: 2)
-        createLabel("■ Enemy: Visual, Intelligence", color: SKColor.yellowColor(), order: 1)
+        createLabel("■ Player: Visual, Attack, Control", color: SKColor.cyan, order: 0)
+        createLabel("■ Boss: Visual, Attack, Intelligence", color: SKColor.magenta, order: 2)
+        createLabel("■ Enemy: Visual, Intelligence", color: SKColor.yellow, order: 1)
 
         createPlayer()
         createEnemies()
@@ -32,7 +32,7 @@ class EntitiesScene: ExampleScene {
     func createPlayer() {
         player = GKEntity()
 
-        let visualComponent = VisualComponent(color: SKColor.cyanColor(), size: CGSizeMake(30.0, 30.0))
+        let visualComponent = VisualComponent(color: SKColor.cyan, size: CGSize(width: 30.0, height: 30.0))
         visualComponent.position = center
         player.addComponent(visualComponent)
         addChild(visualComponent.sprite)
@@ -49,7 +49,7 @@ class EntitiesScene: ExampleScene {
             let enemy = GKEntity()
             enemies.append(enemy)
 
-            let visualComponent = VisualComponent(color: SKColor.yellowColor(), size: CGSizeMake(20.0, 20.0))
+            let visualComponent = VisualComponent(color: SKColor.yellow, size: CGSize(width: 20.0, height: 20.0))
             visualComponent.position = randomPosition()
             enemy.addComponent(visualComponent)
             addChild(visualComponent.sprite)
@@ -63,7 +63,7 @@ class EntitiesScene: ExampleScene {
     func createBoss() {
         boss = GKEntity()
 
-        let visualComponent = VisualComponent(color: SKColor.magentaColor(), size: CGSizeMake(50.0, 50.0))
+        let visualComponent = VisualComponent(color: SKColor.magenta, size: CGSize(width: 50.0, height: 50.0))
         visualComponent.position = randomPosition()
         boss.addComponent(visualComponent)
         addChild(visualComponent.sprite)
@@ -77,23 +77,23 @@ class EntitiesScene: ExampleScene {
     }
 
     func randomPosition() -> CGPoint {
-        let x = GKRandomDistribution(lowestValue: 50, highestValue: Int(CGRectGetMaxX(frame)) - 50).nextInt()
-        let y = GKRandomDistribution(lowestValue: 50, highestValue: Int(CGRectGetMaxY(frame)) - 50).nextInt()
-        return CGPointMake(CGFloat(x), CGFloat(y))
+        let x = GKRandomDistribution(lowestValue: 50, highestValue: Int(frame.maxX) - 50).nextInt()
+        let y = GKRandomDistribution(lowestValue: 50, highestValue: Int(frame.maxY) - 50).nextInt()
+        return CGPoint(x: CGFloat(x), y: CGFloat(y))
     }
 
-    override func update(currentTime: NSTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
 
-        player.updateWithDeltaTime(deltaTime)
-        intelligenceSystem.updateWithDeltaTime(deltaTime)
+        player.update(deltaTime: deltaTime)
+        intelligenceSystem.update(deltaTime: deltaTime)
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        let location = touch.locationInNode(self)
-        let node = nodeAtPoint(location)
-        if let controlComponent = player.componentForClass(ControlComponent.self) {
+        let location = touch.location(in: self)
+        let node = atPoint(location)
+        if let controlComponent = player.component(ofType: ControlComponent.self) {
             controlComponent.touch(node, location: location)
         }
     }

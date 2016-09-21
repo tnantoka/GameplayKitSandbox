@@ -19,12 +19,12 @@ class StateViewController: ExampleViewController {
         scene = StateScene(size: skView.frame.size)
         skView.presentScene(scene)
 
-        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "viewDidDoubleTap:")
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(StateViewController.viewDidDoubleTap(_:)))
         doubleTapRecognizer.numberOfTapsRequired = 2
         view.addGestureRecognizer(doubleTapRecognizer)
 
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: "viewDidTap:")
-        tapRecognizer.requireGestureRecognizerToFail(doubleTapRecognizer)
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(StateViewController.viewDidTap(_:)))
+        tapRecognizer.require(toFail: doubleTapRecognizer)
         view.addGestureRecognizer(tapRecognizer)
     }
 
@@ -44,11 +44,11 @@ class StateViewController: ExampleViewController {
     }
     */
 
-    func viewDidDoubleTap(sender: UIGestureRecognizer) {
+    func viewDidDoubleTap(_ sender: UIGestureRecognizer) {
         scene.createRain()
     }
 
-    func viewDidTap(sender: UIGestureRecognizer) {
+    func viewDidTap(_ sender: UIGestureRecognizer) {
         scene.createSpark()
     }
 }

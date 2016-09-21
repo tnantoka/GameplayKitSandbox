@@ -17,7 +17,7 @@ class AgentsScene: ExampleScene {
     var agentSystem = GKComponentSystem(componentClass: GKAgent2D.self)
 
     override func createSceneContents() {
-        targetNode = AgentNode(color: SKColor.magentaColor(), radius: 30.0, position: center)
+        targetNode = AgentNode(color: SKColor.magenta, radius: 30.0, position: center)
         addChild(targetNode)
 
         let goal = GKGoal(toWander: 10.0)
@@ -27,11 +27,11 @@ class AgentsScene: ExampleScene {
     }
 
     func createBullet() {
-        let x = GKRandomDistribution(lowestValue: 0, highestValue: Int(CGRectGetMaxX(frame))).nextInt()
-        let y = GKRandomDistribution(lowestValue: 0, highestValue: Int(CGRectGetMaxY(frame))).nextInt()
-        let position = CGPointMake(CGFloat(x), CGFloat(y))
+        let x = GKRandomDistribution(lowestValue: 0, highestValue: Int(frame.maxX)).nextInt()
+        let y = GKRandomDistribution(lowestValue: 0, highestValue: Int(frame.maxY)).nextInt()
+        let position = CGPoint(x: CGFloat(x), y: CGFloat(y))
 
-        let bullet = AgentNode(color: SKColor.cyanColor(), radius: 10.0, position: position)
+        let bullet = AgentNode(color: SKColor.cyan, radius: 10.0, position: position)
         addChild(bullet)
 
         let goal = GKGoal(toSeekAgent: targetNode.agent)
@@ -40,12 +40,12 @@ class AgentsScene: ExampleScene {
         agentSystem.addComponent(bullet.agent)
     }
 
-    override func update(currentTime: NSTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
-        agentSystem.updateWithDeltaTime(deltaTime)
+        agentSystem.update(deltaTime: deltaTime)
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         createBullet()
     }
 }

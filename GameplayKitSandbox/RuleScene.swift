@@ -20,40 +20,40 @@ class RuleScene: ExampleScene, SKPhysicsContactDelegate {
     var ruleSystem: GKRuleSystem!
     var power = 100
 
-    var waitingTime: NSTimeInterval = 0
+    var waitingTime: TimeInterval = 0
 
     enum ContactCategory: UInt32 {
-        case Cleaner = 1
-        case Garbage = 2
+        case cleaner = 1
+        case garbage = 2
     }
 
     override func createSceneContents() {
         physicsWorld.contactDelegate = self
 
-        chargerNode = SKSpriteNode(color: SKColor.yellowColor(), size: CGSizeMake(30.0, 30.0))
-        chargerNode.position = CGPointMake(CGRectGetMaxX(frame) - 15.0, CGRectGetMaxY(frame) - 15.0)
+        chargerNode = SKSpriteNode(color: SKColor.yellow, size: CGSize(width: 30.0, height: 30.0))
+        chargerNode.position = CGPoint(x: frame.maxX - 15.0, y: frame.maxY - 15.0)
         addChild(chargerNode)
 
         cleanerNode = SKShapeNode(circleOfRadius: 20.0)
-        cleanerNode.fillColor = SKColor.whiteColor()
+        cleanerNode.fillColor = SKColor.white
         cleanerNode.position = randomPosition()
         addChild(cleanerNode)
-        cleanerNode.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(cleanerNode.frame) / 2)
+        cleanerNode.physicsBody = SKPhysicsBody(circleOfRadius: cleanerNode.frame.width / 2)
         cleanerNode.physicsBody?.affectedByGravity = false
-        cleanerNode.physicsBody?.contactTestBitMask = ContactCategory.Garbage.rawValue
-        cleanerNode.physicsBody?.categoryBitMask = ContactCategory.Cleaner.rawValue
+        cleanerNode.physicsBody?.contactTestBitMask = ContactCategory.garbage.rawValue
+        cleanerNode.physicsBody?.categoryBitMask = ContactCategory.cleaner.rawValue
 
-        powerNode = SKSpriteNode(color: SKColor.cyanColor(), size: CGSizeMake(50.0, 20.0))
-        powerNode.position = CGPointMake(10.0, CGRectGetMaxY(frame) - powerNode.size.height - 10.0)
-        powerNode.anchorPoint = CGPointZero
+        powerNode = SKSpriteNode(color: SKColor.cyan, size: CGSize(width: 50.0, height: 20.0))
+        powerNode.position = CGPoint(x: 10.0, y: frame.maxY - powerNode.size.height - 10.0)
+        powerNode.anchorPoint = CGPoint.zero
         addChild(powerNode)
 
         ruleSystem = GKRuleSystem()
         let rules = [
-            GKRule(predicate: NSPredicate(format: "$distanceToCharger > 550"), assertingFact: "charge", grade: 1.0),
-            GKRule(predicate: NSPredicate(format: "$power <= 30"), assertingFact: "charge", grade: 1.0),
+            GKRule(predicate: NSPredicate(format: "$distanceToCharger > 550"), assertingFact: "charge" as NSObjectProtocol, grade: 1.0),
+            GKRule(predicate: NSPredicate(format: "$power <= 30"), assertingFact: "charge" as NSObjectProtocol, grade: 1.0),
         ]
-        ruleSystem.addRulesFromArray(rules)
+        ruleSystem.add(rules)
 
         createGarbages()
     }
@@ -61,23 +61,23 @@ class RuleScene: ExampleScene, SKPhysicsContactDelegate {
     func createGarbages() {
         let count = GKRandomDistribution.d6().nextInt()
         for _ in 0...count {
-            let garbage = SKSpriteNode(color: SKColor.lightGrayColor(), size: CGSizeMake(10.0, 10.0))
+            let garbage = SKSpriteNode(color: SKColor.lightGray, size: CGSize(width: 10.0, height: 10.0))
             garbage.position = randomPosition()
             addChild(garbage)
-            garbage.physicsBody = SKPhysicsBody(rectangleOfSize: garbage.frame.size)
+            garbage.physicsBody = SKPhysicsBody(rectangleOf: garbage.frame.size)
             garbage.physicsBody?.affectedByGravity = false
-            garbage.physicsBody?.contactTestBitMask = ContactCategory.Cleaner.rawValue
-            garbage.physicsBody?.categoryBitMask = ContactCategory.Garbage.rawValue
+            garbage.physicsBody?.contactTestBitMask = ContactCategory.cleaner.rawValue
+            garbage.physicsBody?.categoryBitMask = ContactCategory.garbage.rawValue
         }
     }
 
     func randomPosition() -> CGPoint {
-        let x = GKRandomDistribution(lowestValue: 30, highestValue: Int(CGRectGetMaxX(frame)) - 30).nextInt()
-        let y = GKRandomDistribution(lowestValue: 30, highestValue: Int(CGRectGetMaxY(frame)) - 30).nextInt()
-        return CGPointMake(CGFloat(x), CGFloat(y))
+        let x = GKRandomDistribution(lowestValue: 30, highestValue: Int(frame.maxX) - 30).nextInt()
+        let y = GKRandomDistribution(lowestValue: 30, highestValue: Int(frame.maxY) - 30).nextInt()
+        return CGPoint(x: CGFloat(x), y: CGFloat(y))
     }
 
-    override func update(currentTime: NSTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
 
         self.updatePowerNode()
@@ -94,17 +94,17 @@ class RuleScene: ExampleScene, SKPhysicsContactDelegate {
             ruleSystem.reset()
             ruleSystem.evaluate()
 
-            let charge = ruleSystem.gradeForFact("charge")
+            let charge = ruleSystem.grade(forFact: "charge" as NSObjectProtocol)
             if charge > 0.0 {
-                let action = SKAction.moveTo(chargerNode.position, duration: 1.0)
-                cleanerNode.runAction(action) {
+                let action = SKAction.move(to: chargerNode.position, duration: 1.0)
+                cleanerNode.run(action, completion: {
                     self.power = 100
-                }
+                }) 
             } else {
-                let action = SKAction.moveTo(randomPosition(), duration: 1.0)
-                cleanerNode.runAction(action) {
+                let action = SKAction.move(to: randomPosition(), duration: 1.0)
+                cleanerNode.run(action, completion: {
                     self.power -= 10
-                }
+                }) 
             }
             waitingTime = 0
         }
@@ -116,7 +116,7 @@ class RuleScene: ExampleScene, SKPhysicsContactDelegate {
 
     // MARK: - SKPhysicsContactDelegate
 
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         let firstBody: SKPhysicsBody
         let secondBody: SKPhysicsBody
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
@@ -127,7 +127,7 @@ class RuleScene: ExampleScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
 
-        if firstBody.categoryBitMask & ContactCategory.Cleaner.rawValue > 0 && secondBody.categoryBitMask & ContactCategory.Garbage.rawValue > 0 {
+        if firstBody.categoryBitMask & ContactCategory.cleaner.rawValue > 0 && secondBody.categoryBitMask & ContactCategory.garbage.rawValue > 0 {
             secondBody.node?.removeFromParent()
         }
     }

@@ -23,7 +23,7 @@ class RandomizationViewController: ExampleViewController {
 
         let segmentedControl = UISegmentedControl(items: ["Random", "Gaussian", "Shuffled"])
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: "segmentedControlDidChange:", forControlEvents: .ValueChanged)
+        segmentedControl.addTarget(self, action: #selector(RandomizationViewController.segmentedControlDidChange(_:)), for: .valueChanged)
         navigationItem.titleView = segmentedControl
     }
 
@@ -43,7 +43,7 @@ class RandomizationViewController: ExampleViewController {
     }
     */
 
-    func segmentedControlDidChange(sender: UISegmentedControl) {
+    func segmentedControlDidChange(_ sender: UISegmentedControl) {
         scene.distributionIndex = sender.selectedSegmentIndex
     }
 }

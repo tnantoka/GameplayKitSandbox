@@ -12,23 +12,23 @@ import GameplayKit
 
 class HouseWetState: HouseState {
 
-    var remainingTime: NSTimeInterval = 0
+    var remainingTime: TimeInterval = 0
 
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass == HouseDryState.self
     }
 
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        if let component = entity.componentForClass(BurnableComponent.self) {
+    override func didEnter(from previousState: GKState?) {
+        if let component = entity.component(ofType: BurnableComponent.self) {
             component.useWetAppearance()
             remainingTime = 3.0
         }
     }
 
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func update(deltaTime seconds: TimeInterval) {
         remainingTime -= seconds
         if remainingTime < 0 {
-            stateMachine?.enterState(HouseDryState.self)
+            stateMachine?.enter(HouseDryState.self)
         }
     }
 }

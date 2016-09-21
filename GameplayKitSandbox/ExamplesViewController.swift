@@ -39,7 +39,7 @@ class ExamplesViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         title = "GameplayKit Sandbox"
     }
 
@@ -50,21 +50,21 @@ class ExamplesViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return titles.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
 
         // Configure the cell...
-        let title = titles[indexPath.row]
+        let title = titles[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = title
 
         return cell
@@ -115,9 +115,9 @@ class ExamplesViewController: UITableViewController {
     }
     */
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let title = titles[indexPath.row]
-        let controller = controllers[indexPath.row]
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let title = titles[(indexPath as NSIndexPath).row]
+        let controller = controllers[(indexPath as NSIndexPath).row]
         controller.title = title
         self.navigationController?.pushViewController(controller, animated: true)
     }

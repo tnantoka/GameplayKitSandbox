@@ -12,11 +12,11 @@ import GameplayKit
 
 class IntelligenceComponent: GKComponent {
 
-    var waitingMoveTime: NSTimeInterval = 0
-    var waitingAttackTime: NSTimeInterval = 0
+    var waitingMoveTime: TimeInterval = 0
+    var waitingAttackTime: TimeInterval = 0
     let random = GKRandomDistribution(lowestValue: -30, highestValue: 30)
 
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func update(deltaTime seconds: TimeInterval) {
         waitingMoveTime += seconds
         waitingAttackTime += seconds
 
@@ -24,7 +24,7 @@ class IntelligenceComponent: GKComponent {
             let x = CGFloat(random.nextInt())
             let y = CGFloat(random.nextInt())
             if let entity = entity {
-                if let visualComponent = entity.componentForClass(VisualComponent.self) {
+                if let visualComponent = entity.component(ofType: VisualComponent.self) {
                     visualComponent.moveBy(x, y)
                 }
 
@@ -33,7 +33,7 @@ class IntelligenceComponent: GKComponent {
         }
         if waitingAttackTime > 3 {
             if let entity = entity {
-                if let attackComponent = entity.componentForClass(AttackComponent.self) {
+                if let attackComponent = entity.component(ofType: AttackComponent.self) {
                     attackComponent.attack()
                 }
             }

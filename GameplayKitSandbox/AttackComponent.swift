@@ -15,9 +15,9 @@ import GLKit
 class AttackComponent: GKComponent {
     func attack() {
         if let entity = entity {
-            if let visualComponent = entity.componentForClass(VisualComponent.self) {
-                let action = SKAction.rotateByAngle(CGFloat(GLKMathDegreesToRadians(360.0)), duration: 0.3)
-                visualComponent.sprite.runAction(action)
+            if let visualComponent = entity.component(ofType: VisualComponent.self) {
+                let action = SKAction.rotate(byAngle: CGFloat(GLKMathDegreesToRadians(360.0)), duration: 0.3)
+                visualComponent.sprite.run(action)
             }
         }
     }

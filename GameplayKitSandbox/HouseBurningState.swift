@@ -11,12 +11,12 @@ import UIKit
 import GameplayKit
 
 class HouseBurningState: HouseState {
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass == HouseWetState.self
     }
 
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        if let component = entity.componentForClass(BurnableComponent.self) {
+    override func didEnter(from previousState: GKState?) {
+        if let component = entity.component(ofType: BurnableComponent.self) {
             component.useBurningAppearance()
         }
     }

@@ -11,8 +11,8 @@ import UIKit
 import GameplayKit
 
 class HouseDryState: HouseState {
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        if let component = entity.componentForClass(BurnableComponent.self) {
+    override func didEnter(from previousState: GKState?) {
+        if let component = entity.component(ofType: BurnableComponent.self) {
             component.useDryAppearance()
         }
     }

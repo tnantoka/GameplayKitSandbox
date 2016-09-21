@@ -23,17 +23,17 @@ class AgentNode: SKNode, GKAgentDelegate {
             let radian = CGFloat(GLKMathDegreesToRadians(degree))
             let x = cos(radian) * radius
             let y = sin(radian) * radius
-            points.append(CGPointMake(x, y))
+            points.append(CGPoint(x: x, y: y))
         }
 
         let shape = SKShapeNode(points: &points, count: points.count)
         shape.fillColor = color
-        shape.strokeColor = SKColor.clearColor()
+        shape.strokeColor = SKColor.clear
 
         let circle = SKShapeNode(circleOfRadius: 2.0)
-        circle.strokeColor = SKColor.clearColor()
-        circle.fillColor = SKColor.yellowColor()
-        circle.position = CGPointMake(points[0].x, points[0].y)
+        circle.strokeColor = SKColor.clear
+        circle.fillColor = SKColor.yellow
+        circle.position = CGPoint(x: points[0].x, y: points[0].y)
 
         agent = GKAgent2D()
         agent.position = vector_float2(x: Float(position.x), y: Float(position.y))
@@ -56,12 +56,12 @@ class AgentNode: SKNode, GKAgentDelegate {
 
     // MARK: - GKAgentDelegate
 
-    func agentWillUpdate(agent: GKAgent) {
+    func agentWillUpdate(_ agent: GKAgent) {
     }
 
-    func agentDidUpdate(agent: GKAgent) {
+    func agentDidUpdate(_ agent: GKAgent) {
         guard let agent = agent as? GKAgent2D else { return }
-        self.position = CGPointMake(CGFloat(agent.position.x), CGFloat(agent.position.y))
+        self.position = CGPoint(x: CGFloat(agent.position.x), y: CGFloat(agent.position.y))
         self.zRotation = CGFloat(agent.rotation)
 
     }

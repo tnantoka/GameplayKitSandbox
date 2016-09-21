@@ -18,16 +18,16 @@ class Player: NSObject, GKGameModelPlayer {
     }
 
     static var _players = [
-        Player(mark: .O),
-        Player(mark: .X),
+        Player(mark: .o),
+        Player(mark: .x),
     ]
 
     class func oPlayer() -> Player {
-        return _players[Mark.O.rawValue - 1]
+        return _players[Mark.o.rawValue - 1]
     }
 
     class func xPlayer() -> Player {
-        return _players[Mark.X.rawValue - 1]
+        return _players[Mark.x.rawValue - 1]
     }
 
     class func all() -> [Player] {
@@ -36,9 +36,9 @@ class Player: NSObject, GKGameModelPlayer {
 
     func opponent() -> Player? {
         switch mark {
-        case .O:
+        case .o:
             return Player.xPlayer()
-        case .X:
+        case .x:
             return Player.oPlayer()
         default:
             return nil

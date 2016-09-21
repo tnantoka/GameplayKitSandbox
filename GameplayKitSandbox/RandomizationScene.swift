@@ -15,9 +15,9 @@ class RandomizationScene: ExampleScene {
 
     let degrees = [Int](0...72).map { $0 * (360 / 72) }
     let examples = [
-        [GKARC4RandomSource.self, SKColor.cyanColor(), "ARC4"],
-        [GKLinearCongruentialRandomSource.self, SKColor.magentaColor(), "LinearCongruential"],
-        [GKMersenneTwisterRandomSource.self, SKColor.yellowColor(), "MersenneTwister"],
+        [GKARC4RandomSource.self, SKColor.cyan, "ARC4"],
+        [GKLinearCongruentialRandomSource.self, SKColor.magenta, "LinearCongruential"],
+        [GKMersenneTwisterRandomSource.self, SKColor.yellow, "MersenneTwister"],
     ]
 
     var distributionIndex = 0 {
@@ -33,12 +33,12 @@ class RandomizationScene: ExampleScene {
     ]
 
     override func createSceneContents() {
-        for (i, example) in examples.enumerate() {
+        for (i, example) in examples.enumerated() {
             let type = example[0] as! GKRandomSource.Type
             let source = type.sharedRandom()
 
             let color = example[1] as! UIColor
-            let radius = CGRectGetWidth(frame) * (0.4 - CGFloat(i) * 0.05)
+            let radius = frame.width * (0.4 - CGFloat(i) * 0.05)
 
             draw(distribution(source), color: color, radius: radius)
 
@@ -47,11 +47,11 @@ class RandomizationScene: ExampleScene {
         }
     }
 
-    func distribution(source: GKRandomSource) -> GKRandomDistribution {
+    func distribution(_ source: GKRandomSource) -> GKRandomDistribution {
         return distributions[distributionIndex].init(randomSource: source, lowestValue: 0, highestValue: degrees.count - 1)
     }
 
-    func draw(distribution: GKRandomDistribution, color: SKColor, radius: CGFloat) {
+    func draw(_ distribution: GKRandomDistribution, color: SKColor, radius: CGFloat) {
         let circle = SKShapeNode(circleOfRadius: radius)
         circle.position = center
         addChild(circle)
@@ -62,9 +62,9 @@ class RandomizationScene: ExampleScene {
             let x = center.x + radius * sin(radian)
             let y = center.y + radius * cos(radian)
             let circle = SKShapeNode(circleOfRadius: 3.0)
-            circle.position = CGPointMake(x, y)
+            circle.position = CGPoint(x: x, y: y)
             circle.fillColor = color
-            circle.strokeColor = SKColor.clearColor()
+            circle.strokeColor = SKColor.clear
             addChild(circle)
         }
     }

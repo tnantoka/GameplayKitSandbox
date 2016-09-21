@@ -15,22 +15,22 @@ class ExampleScene: SKScene {
     var contentCreated = false
 
     var center: CGPoint {
-        return CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame))
+        return CGPoint(x: frame.midX, y: frame.midY)
     }
 
-    var prevUpdateTime: NSTimeInterval = -1;
-    var deltaTime: NSTimeInterval = 0
+    var prevUpdateTime: TimeInterval = -1;
+    var deltaTime: TimeInterval = 0
 
     override init(size: CGSize) {
         super.init(size: size)
-        userInteractionEnabled = true
+        isUserInteractionEnabled = true
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         if !contentCreated {
             createSceneContents()
             contentCreated = true
@@ -40,7 +40,7 @@ class ExampleScene: SKScene {
     func createSceneContents() {
     }
 
-    override func update(currentTime: NSTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         if (prevUpdateTime < 0) {
             prevUpdateTime = currentTime
         }
@@ -48,15 +48,15 @@ class ExampleScene: SKScene {
         prevUpdateTime = currentTime
     }
 
-    func createLabel(text: String, color: SKColor, order: Int) {
+    func createLabel(_ text: String, color: SKColor, order: Int) {
         let label = SKLabelNode(text: text)
         label.fontSize = 14.0
-        label.fontName = UIFont.boldSystemFontOfSize(UIFont.systemFontSize()).fontName
+        label.fontName = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize).fontName
         let padding: CGFloat = 10.0
-        label.position = CGPointMake(padding, CGRectGetMaxY(frame) - CGFloat(order) * label.fontSize - padding)
+        label.position = CGPoint(x: padding, y: frame.maxY - CGFloat(order) * label.fontSize - padding)
         label.fontColor = color
-        label.horizontalAlignmentMode = .Left
-        label.verticalAlignmentMode = .Top
+        label.horizontalAlignmentMode = .left
+        label.verticalAlignmentMode = .top
         addChild(label)
     }
 }

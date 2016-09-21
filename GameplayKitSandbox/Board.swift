@@ -21,18 +21,18 @@ class Board: NSObject, GKGameModel {
     init(level: Int) {
         self.level = level
         currentPlayer = Player.oPlayer()
-        cells = Array<Mark>(count: level * level, repeatedValue: .None)
+        cells = Array<Mark>(repeating: .none, count: level * level)
     }
 
-    func updateCell(index: Int) {
-        if cells[index] == .None {
+    func updateCell(_ index: Int) {
+        if cells[index] == .none {
             cells[index] = currentPlayer.mark
             currentPlayer = currentPlayer.opponent()!
         }
     }
 
     func isGameOver() -> Bool {
-        return cells.filter { $0 == Mark.None }.isEmpty || isWinForPlayer(currentPlayer) || isLossForPlayer(currentPlayer)
+        return cells.filter { $0 == Mark.none }.isEmpty || isWin(for: currentPlayer) || isLoss(for: currentPlayer)
     }
 
     func lines() -> [[Int]] {
@@ -73,7 +73,7 @@ class Board: NSObject, GKGameModel {
         return lines
     }
 
-    func checksForPlayer(player: GKGameModelPlayer) -> Int {
+    func checksForPlayer(_ player: GKGameModelPlayer) -> Int {
         guard let player = player as? Player else { return 0 }
 
         var count = 0
@@ -86,14 +86,14 @@ class Board: NSObject, GKGameModel {
                 case player.mark:
                     break
                 case player.opponent()!.mark:
-                    opponentCount++
+                    opponentCount += 1
                 default:
-                    noneCount++
+                    noneCount += 1
                 }
             }
 
             if noneCount == 1 && opponentCount == level - 1 {
-                count++
+                count += 1
             }
         }
 
@@ -109,23 +109,23 @@ class Board: NSObject, GKGameModel {
         return currentPlayer
     }
 
-    func gameModelUpdatesForPlayer(player: GKGameModelPlayer) -> [GKGameModelUpdate]? {
+    func gameModelUpdates(for player: GKGameModelPlayer) -> [GKGameModelUpdate]? {
         var moves = [Move]()
-        for (i, cell) in cells.enumerate() {
-            if cell == .None {
+        for (i, cell) in cells.enumerated() {
+            if cell == .none {
                 moves.append(Move(index: i))
             }
         }
         return moves
     }
 
-    func applyGameModelUpdate(gameModelUpdate: GKGameModelUpdate) {
+    func apply(_ gameModelUpdate: GKGameModelUpdate) {
         if let move = gameModelUpdate as? Move {
             updateCell(move.index)
         }
     }
 
-    func setGameModel(gameModel: GKGameModel) {
+    func setGameModel(_ gameModel: GKGameModel) {
         if let board = gameModel as? Board {
             cells = board.cells
             debug = board.debug
@@ -133,20 +133,20 @@ class Board: NSObject, GKGameModel {
         }
     }
 
-    func copyWithZone(zone: NSZone) -> AnyObject {
+    func copy(with zone: NSZone?) -> Any {
         let board = Board(level: self.level)
         board.setGameModel(self)
         return board
     }
 
-    func isWinForPlayer(player: GKGameModelPlayer) -> Bool {
+    func isWin(for player: GKGameModelPlayer) -> Bool {
         guard let player = player as? Player else { return false }
 
         for line in lines() {
             var count = 0
             for l in line {
                 if cells[l] == player.mark {
-                    count++
+                    count += 1
                 }
             }
             if count == level {
@@ -157,13 +157,13 @@ class Board: NSObject, GKGameModel {
         return false
     }
 
-    func isLossForPlayer(player: GKGameModelPlayer) -> Bool {
+    func isLoss(for player: GKGameModelPlayer) -> Bool {
         guard let player = player as? Player else { return false }
 
-        return isWinForPlayer(player.opponent()!)
+        return isWin(for: player.opponent()!)
     }
 
-    func scoreForPlayer(player: GKGameModelPlayer) -> Int {
+    func score(for player: GKGameModelPlayer) -> Int {
         let score: Int
 
         score = -checksForPlayer(player)

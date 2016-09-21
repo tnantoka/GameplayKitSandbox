@@ -1,6 +1,6 @@
 # GameplayKitSandbox
 
-[GameplayKit](https://developer.apple.com/library/ios/documentation/General/Conceptual/GameplayKit_Guide/) examples with SpriteKit written in Swift 2.
+[GameplayKit](https://developer.apple.com/library/ios/documentation/General/Conceptual/GameplayKit_Guide/) examples with SpriteKit written in Swift.
 
 Major Feature | Screenshot
 --- | ---

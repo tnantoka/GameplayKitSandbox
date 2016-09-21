@@ -14,7 +14,7 @@ import GameplayKit
 class VisualComponent: GKComponent {
     let sprite: SKSpriteNode
 
-    var position = CGPointZero {
+    var position = CGPoint.zero {
         didSet {
             sprite.position = position
         }
@@ -22,17 +22,22 @@ class VisualComponent: GKComponent {
 
     init(color: SKColor, size: CGSize) {
         sprite = SKSpriteNode(color: color, size: size)
+        super.init()
     }
 
-    func moveTo(position: CGPoint) {
-        let action = SKAction.moveTo(position, duration: 0.3)
-        sprite.runAction(action) {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func moveTo(_ position: CGPoint) {
+        let action = SKAction.move(to: position, duration: 0.3)
+        sprite.run(action, completion: {
             self.position = position
-        }
+        }) 
     }
 
-    func moveBy(x: CGFloat, _ y: CGFloat) {
-        let p = CGPointMake(position.x + x, position.y + y)
+    func moveBy(_ x: CGFloat, _ y: CGFloat) {
+        let p = CGPoint(x: position.x + x, y: position.y + y)
         moveTo(p)
     }
 }

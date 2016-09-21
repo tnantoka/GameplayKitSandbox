@@ -17,8 +17,8 @@ class PathfindingScene: ExampleScene, SKPhysicsContactDelegate {
     var blocks: [SKSpriteNode]!
 
     enum ContactCategory: UInt32 {
-        case Target = 1
-        case Ball = 2
+        case target = 1
+        case ball = 2
     }
 
     override func createSceneContents() {
@@ -29,25 +29,25 @@ class PathfindingScene: ExampleScene, SKPhysicsContactDelegate {
     }
 
     func createTarget() {
-        targetNode = SKSpriteNode(color: SKColor.cyanColor(), size: CGSizeMake(50.0, 20.0))
+        targetNode = SKSpriteNode(color: SKColor.cyan, size: CGSize(width: 50.0, height: 20.0))
         targetNode.userData = [ "vx": 0.4 ]
-        targetNode.position = CGPointMake(CGRectGetHeight(targetNode.frame) / 2, CGRectGetMaxY(frame) - CGRectGetHeight(targetNode.frame) / 2)
-        targetNode.physicsBody = SKPhysicsBody(rectangleOfSize: targetNode.size)
-        targetNode.physicsBody?.dynamic = false
-        targetNode.physicsBody?.categoryBitMask = ContactCategory.Target.rawValue
-        targetNode.physicsBody?.contactTestBitMask = ContactCategory.Ball.rawValue
+        targetNode.position = CGPoint(x: targetNode.frame.height / 2, y: frame.maxY - targetNode.frame.height / 2)
+        targetNode.physicsBody = SKPhysicsBody(rectangleOf: targetNode.size)
+        targetNode.physicsBody?.isDynamic = false
+        targetNode.physicsBody?.categoryBitMask = ContactCategory.target.rawValue
+        targetNode.physicsBody?.contactTestBitMask = ContactCategory.ball.rawValue
         addChild(targetNode)
     }
 
     func createBall() {
         let radius: CGFloat = 10.0
         let ball = SKShapeNode(circleOfRadius: 10.0)
-        ball.fillColor = SKColor.yellowColor()
-        ball.position = CGPointMake(center.x, 0.0)
+        ball.fillColor = SKColor.yellow
+        ball.position = CGPoint(x: center.x, y: 0.0)
         ball.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         ball.physicsBody?.affectedByGravity = false
-        ball.physicsBody?.categoryBitMask = ContactCategory.Ball.rawValue
-        ball.physicsBody?.contactTestBitMask = ContactCategory.Target.rawValue
+        ball.physicsBody?.categoryBitMask = ContactCategory.ball.rawValue
+        ball.physicsBody?.contactTestBitMask = ContactCategory.target.rawValue
         addChild(ball)
 
         /*
@@ -56,27 +56,27 @@ class PathfindingScene: ExampleScene, SKPhysicsContactDelegate {
         ball.physicsBody?.applyForce(CGVectorMake(dx, dy))
         */
 
-        let obstacles = SKNode.obstaclesFromNodePhysicsBodies(blocks)
+        let obstacles = SKNode.obstacles(fromNodePhysicsBodies: blocks)
         let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 10.0)
 
         let startNode = GKGraphNode2D(point: vector_float2(x: Float(ball.position.x), y: Float(ball.position.y)))
-        let toNode = GKGraphNode2D(point: vector_float2(x: Float(targetNode.position.x), y: Float(targetNode.position.y + CGRectGetHeight(targetNode.frame) / 2)))
+        let toNode = GKGraphNode2D(point: vector_float2(x: Float(targetNode.position.x), y: Float(targetNode.position.y + targetNode.frame.height / 2)))
 
-        graph.connectNodeUsingObstacles(startNode)
-        graph.connectNodeUsingObstacles(toNode)
+        graph.connectUsingObstacles(node: startNode)
+        graph.connectUsingObstacles(node: toNode)
 
-        if let nodes = graph.findPathFromNode(startNode, toNode: toNode) as? [GKGraphNode2D] {
-            let path = CGPathCreateMutable()
-            CGPathMoveToPoint(path, nil, ball.position.x, ball.position.y)
+        if let nodes = graph.findPath(from: startNode, to: toNode) as? [GKGraphNode2D] {
+            let path = CGMutablePath()
+            path.move(to: ball.position)
             for node in nodes {
-                CGPathAddLineToPoint(path, nil, CGFloat(node.position.x), CGFloat(node.position.y))
+                path.addLine(to: CGPoint(x: CGFloat(node.position.x), y: CGFloat(node.position.y)))
             }
-            let action = SKAction.followPath(path
+            let action = SKAction.follow(path
                 , asOffset: false, orientToPath: false, duration: 0.8)
-            ball.runAction(action)
+            ball.run(action)
 
             let pathNode = SKShapeNode(path: path)
-            pathNode.strokeColor = SKColor.redColor()
+            pathNode.strokeColor = SKColor.red
             addChild(pathNode)
         }
     }
@@ -84,36 +84,36 @@ class PathfindingScene: ExampleScene, SKPhysicsContactDelegate {
     func createBlocks() {
         blocks = [SKSpriteNode]()
         for _ in 0..<10 {
-            let block = SKSpriteNode(color: SKColor.magentaColor(), size: CGSizeMake(30.0, 30.0))
-            let x = GKRandomDistribution(lowestValue: 50, highestValue: Int(CGRectGetWidth(frame)) - 50).nextInt()
-            let y = GKRandomDistribution(lowestValue: 50, highestValue: Int(CGRectGetHeight(frame)) - 50).nextInt()
-            block.position = CGPointMake(CGFloat(x), CGFloat(y))
-            block.physicsBody = SKPhysicsBody(rectangleOfSize: block.size)
-            block.physicsBody?.dynamic = false
+            let block = SKSpriteNode(color: SKColor.magenta, size: CGSize(width: 30.0, height: 30.0))
+            let x = GKRandomDistribution(lowestValue: 50, highestValue: Int(frame.width) - 50).nextInt()
+            let y = GKRandomDistribution(lowestValue: 50, highestValue: Int(frame.height) - 50).nextInt()
+            block.position = CGPoint(x: CGFloat(x), y: CGFloat(y))
+            block.physicsBody = SKPhysicsBody(rectangleOf: block.size)
+            block.physicsBody?.isDynamic = false
             addChild(block)
             blocks.append(block)
         }
     }
 
-    override func update(currentTime: NSTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         targetNode.position.x += targetNode.userData!["vx"] as! CGFloat
 
-        if targetNode.position.x > CGRectGetWidth(frame) - CGRectGetHeight(targetNode.frame) / 2 {
+        if targetNode.position.x > frame.width - targetNode.frame.height / 2 {
             targetNode.userData!["vx"] = targetNode.userData!["vx"] as! CGFloat * -1.0
         }
 
-        if targetNode.position.x < CGRectGetHeight(targetNode.frame) / 2 {
+        if targetNode.position.x < targetNode.frame.height / 2 {
             targetNode.userData!["vx"] = targetNode.userData!["vx"] as! CGFloat * -1.0
         }
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         createBall()
     }
 
     // MARK: - SKPhysicsContactDelegate
 
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         let firstBody: SKPhysicsBody
         let secondBody: SKPhysicsBody
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
@@ -124,7 +124,7 @@ class PathfindingScene: ExampleScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
 
-        if firstBody.categoryBitMask & ContactCategory.Target.rawValue > 0 && secondBody.categoryBitMask & ContactCategory.Ball.rawValue > 0 {
+        if firstBody.categoryBitMask & ContactCategory.target.rawValue > 0 && secondBody.categoryBitMask & ContactCategory.ball.rawValue > 0 {
             secondBody.node?.removeFromParent()
         }
     }

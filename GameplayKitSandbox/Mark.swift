@@ -9,15 +9,15 @@
 import UIKit
 
 enum Mark :Int {
-    case None
-    case O
-    case X
+    case none
+    case o
+    case x
 
     func text() -> String {
         switch self {
-        case .O:
+        case .o:
             return "o"
-        case .X:
+        case .x:
             return "x"
         default:
             return ""
