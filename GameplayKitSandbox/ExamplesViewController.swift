@@ -19,6 +19,7 @@ class ExamplesViewController: UITableViewController {
         "Pathfinding",
         "Agents, Goals, and Behaviors",
         "Rule Systems",
+        "Procedural Generation",
     ]
     let controllers: [UIViewController] = [
         RandomizationViewController(),
@@ -28,6 +29,7 @@ class ExamplesViewController: UITableViewController {
         PathfindingViewController(),
         AgentsViewController(),
         RuleViewController(),
+        NoiseViewController(),
     ]
 
     override func viewDidLoad() {

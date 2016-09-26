@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B484A5D1D96D6640051E037 /* NoiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B484A5C1D96D6640051E037 /* NoiseViewController.swift */; };
+		9B484A5F1D96D66F0051E037 /* NoiseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B484A5E1D96D66F0051E037 /* NoiseScene.swift */; };
 		9B544D6F1BB80A8C00CE30AC /* PathfindingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B544D6E1BB80A8C00CE30AC /* PathfindingScene.swift */; };
 		9B544D711BB9967000CE30AC /* AgentsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B544D701BB9967000CE30AC /* AgentsScene.swift */; };
 		9B544D731BB99C0200CE30AC /* AgentNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B544D721BB99C0200CE30AC /* AgentNode.swift */; };
@@ -67,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B484A5C1D96D6640051E037 /* NoiseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseViewController.swift; sourceTree = "<group>"; };
+		9B484A5E1D96D66F0051E037 /* NoiseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseScene.swift; sourceTree = "<group>"; };
 		9B544D6E1BB80A8C00CE30AC /* PathfindingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathfindingScene.swift; sourceTree = "<group>"; };
 		9B544D701BB9967000CE30AC /* AgentsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentsScene.swift; sourceTree = "<group>"; };
 		9B544D721BB99C0200CE30AC /* AgentNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentNode.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B484A5B1D96D6360051E037 /* Noise */ = {
+			isa = PBXGroup;
+			children = (
+				9B484A5C1D96D6640051E037 /* NoiseViewController.swift */,
+				9B484A5E1D96D66F0051E037 /* NoiseScene.swift */,
+			);
+			name = Noise;
+			sourceTree = "<group>";
+		};
 		9B76DCF31BAE839E00298642 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 				9BAE52251BAEC9B100D2D85B /* Pathfinding */,
 				9BAE52261BAEC9BF00D2D85B /* Agents */,
 				9BAE52271BAEC9CB00D2D85B /* Rule */,
+				9B484A5B1D96D6360051E037 /* Noise */,
 			);
 			path = GameplayKitSandbox;
 			sourceTree = "<group>";
@@ -435,11 +449,13 @@
 				9B638A4C1BBC1D840043FFEC /* RuleScene.swift in Sources */,
 				9BAE524A1BB1204300D2D85B /* BurnableComponent.swift in Sources */,
 				9BAE52221BAEC8D000D2D85B /* EntitiesViewController.swift in Sources */,
+				9B484A5F1D96D66F0051E037 /* NoiseScene.swift in Sources */,
 				9BAE524C1BB120B500D2D85B /* HouseBurningState.swift in Sources */,
 				9BAE522F1BAEC9F900D2D85B /* AgentsViewController.swift in Sources */,
 				9BAE52541BB26D5900D2D85B /* Board.swift in Sources */,
 				9BAE52561BB26E0A00D2D85B /* Player.swift in Sources */,
 				9BAE523A1BAF8D5400D2D85B /* IntelligenceComponent.swift in Sources */,
+				9B484A5D1D96D6640051E037 /* NoiseViewController.swift in Sources */,
 				9BAE52361BAF720500D2D85B /* VisualComponent.swift in Sources */,
 				9B76DD301BAE879400298642 /* ExampleViewController.swift in Sources */,
 				9B76DD371BAE903F00298642 /* ExampleScene.swift in Sources */,
@@ -532,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
@@ -573,7 +589,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
