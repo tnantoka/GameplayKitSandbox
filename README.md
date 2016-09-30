@@ -11,4 +11,4 @@ The Minmax Strategist | ![](screenshot/minmax.png)
 Pathfinding | ![](screenshot/pathfinding.png)
 Agents, Goals, and Behaviors | ![](screenshot/agents.png)
 Rule Systems | ![](screenshot/rule.png)
-
+Procedural Generation | ![](screenshot/procedural.png)
