@@ -55,7 +55,7 @@ class StateScene: ExampleScene {
         }
     }
 
-    func createParticle(_ name: String, position: CGPoint, duration: TimeInterval, callback: @escaping (Void) -> Void) {
+    func createParticle(_ name: String, position: CGPoint, duration: TimeInterval, callback: @escaping () -> Void) {
         if let particlePath = Bundle.main.path(forResource: name, ofType: "sks") {
             if let particle = NSKeyedUnarchiver.unarchiveObject(withFile: particlePath) as? SKEmitterNode {
                 particle.position = position

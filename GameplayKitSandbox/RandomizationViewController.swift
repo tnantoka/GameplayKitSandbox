@@ -43,7 +43,7 @@ class RandomizationViewController: ExampleViewController {
     }
     */
 
-    func segmentedControlDidChange(_ sender: UISegmentedControl) {
+    @objc func segmentedControlDidChange(_ sender: UISegmentedControl) {
         scene.distributionIndex = sender.selectedSegmentIndex
     }
 }
