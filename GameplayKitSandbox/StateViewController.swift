@@ -44,11 +44,11 @@ class StateViewController: ExampleViewController {
     }
     */
 
-    func viewDidDoubleTap(_ sender: UIGestureRecognizer) {
+    @objc func viewDidDoubleTap(_ sender: UIGestureRecognizer) {
         scene.createRain()
     }
 
-    func viewDidTap(_ sender: UIGestureRecognizer) {
+    @objc func viewDidTap(_ sender: UIGestureRecognizer) {
         scene.createSpark()
     }
 }
