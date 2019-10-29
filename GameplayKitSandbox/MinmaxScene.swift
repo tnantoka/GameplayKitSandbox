@@ -97,7 +97,7 @@ class MinmaxScene: ExampleScene {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         if let node = atPoint(location) as? SKSpriteNode {
-            if let index = cells.index(of: node) {
+            if let index = cells.firstIndex(of: node) {
                 board.updateCell(index)
                 updateBoard()
                 if let move = strategist.bestMove(for: board.currentPlayer) as? Move {
